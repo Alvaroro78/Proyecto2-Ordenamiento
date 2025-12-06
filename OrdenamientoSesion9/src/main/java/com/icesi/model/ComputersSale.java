@@ -25,8 +25,27 @@ public class ComputersSale {
 
     }
 
-    public void sortByProcessing(){
 
+
+
+
+
+
+
+
+
+
+
+    public void sortByProcessing(){
+        for (int i = 0; i < this.computers.size() - 1; i++) {
+            for (int j = 0; j < this.computers.size() - i - 1; j++) {
+                if (this.computers.get(j).getProcessingSpeed()*this.computers.get(j).getProcessors()>this.computers.get(j+1).getProcessingSpeed()*this.computers.get(j+1).getProcessors()){
+                    Computer temp = this.computers.get(j);
+                    this.computers.set(j, this.computers.get(j+1));
+                    this.computers.set(j+1, temp);
+                }
+            }
+        }
     }
 
     public void sortByBrandAndOS(){
