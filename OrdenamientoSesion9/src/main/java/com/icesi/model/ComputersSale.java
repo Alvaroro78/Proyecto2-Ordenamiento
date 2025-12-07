@@ -1,6 +1,10 @@
 package com.icesi.model;
 
+import com.icesi.comparators.BrandAndOsComparator;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class ComputersSale {
     //Attributes (None)
@@ -30,7 +34,7 @@ public class ComputersSale {
     }
 
     public void sortByBrandAndOS(){
-
+        Collections.sort(this.computers,new BrandAndOsComparator());
     }
 
     public void sortByRam(){
