@@ -32,18 +32,7 @@ public class ComputersSale {
             this.computers.set(j+1,key);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
+    
     public void sortByProcessing(){
         for (int i = 0; i < this.computers.size() - 1; i++) {
             for (int j = 0; j < this.computers.size() - i - 1; j++) {
