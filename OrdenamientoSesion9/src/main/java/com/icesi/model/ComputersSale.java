@@ -1,6 +1,8 @@
 package com.icesi.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ComputersSale {
     //Attributes (None)
@@ -38,7 +40,7 @@ public class ComputersSale {
     }
 
     public void sortByBrandReverse(){
-
+        Collections.sort(this.computers, Comparator.reverseOrder());
     }
 
     public void generateRandomComputers(int quantity){
