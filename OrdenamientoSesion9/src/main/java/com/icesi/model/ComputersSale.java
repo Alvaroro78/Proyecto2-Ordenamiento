@@ -2,6 +2,9 @@ package com.icesi.model;
 
 import java.util.ArrayList;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class ComputersSale {
     //Attributes (None)
 
@@ -34,7 +37,7 @@ public class ComputersSale {
     }
 
     public void sortByRam(){
-
+        Collections.sort(computers, (c1, c2) -> {if (c1.getRam()>c2.getRam()) return 1; if (c1.getRam() == c2.getRam()) return 0;return -1;});
     }
 
     public void sortByBrandReverse(){
