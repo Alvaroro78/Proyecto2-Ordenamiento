@@ -1,6 +1,6 @@
 package com.icesi.model;
 
-public class Computer {
+public class Computer implements Comparable<Computer>{
     //Attributes
     private String brand;
     private int ram;
@@ -43,5 +43,10 @@ public class Computer {
     @Override
     public String toString(){
         return "Brand: " + this.brand + ". Ram: " + ram + ". Processors: " + processors + ". Processing Speed: " + processingSpeed + ". Operating System: " + operatingSystem;
+    }
+
+    @Override
+    public int compareTo(Computer other) {
+        return this.brand.compareTo(other.brand);
     }
 }
