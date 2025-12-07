@@ -1,5 +1,7 @@
 package com.icesi.model;
 
+import com.icesi.comparators.BrandAndOsComparator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,19 +26,35 @@ public class ComputersSale {
     }
 
     public void sortByBrand(){
-
+        for (int i = 0; i<this.computers.size(); i++){
+            Computer key = this.computers.get(i);
+            int j = i-1;
+            while (j>= 0 && this.computers.get(j).compareTo(key) > 0){
+                this.computers.set(j+1,this.computers.get(j));
+                j-=1;
+            }
+            this.computers.set(j+1,key);
+        }
     }
 
     public void sortByProcessing(){
-
+        for (int i = 0; i < this.computers.size() - 1; i++) {
+            for (int j = 0; j < this.computers.size() - i - 1; j++) {
+                if (this.computers.get(j).getProcessingSpeed()*this.computers.get(j).getProcessors()>this.computers.get(j+1).getProcessingSpeed()*this.computers.get(j+1).getProcessors()){
+                    Computer temp = this.computers.get(j);
+                    this.computers.set(j, this.computers.get(j+1));
+                    this.computers.set(j+1, temp);
+                }
+            }
+        }
     }
 
     public void sortByBrandAndOS(){
-
+        Collections.sort(this.computers,new BrandAndOsComparator());
     }
 
     public void sortByRam(){
-
+        Collections.sort(computers, (c1, c2) -> {if (c1.getRam()>c2.getRam()) return 1; if (c1.getRam() == c2.getRam()) return 0;return -1;});
     }
 
     public void sortByBrandReverse(){
