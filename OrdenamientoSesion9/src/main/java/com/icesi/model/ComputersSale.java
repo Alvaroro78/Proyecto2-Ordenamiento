@@ -22,7 +22,15 @@ public class ComputersSale {
     }
 
     public void sortByBrand(){
-
+        for (int i = 0; i<this.computers.size(); i++){
+            Computer key = this.computers.get(i);
+            int j = i-1;
+            while (j>= 0 && this.computers.get(j).compareTo(key) > 0){
+                this.computers.set(j+1,this.computers.get(j));
+                j-=1;
+            }
+            this.computers.set(j+1,key);
+        }
     }
 
 
